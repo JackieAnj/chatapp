@@ -1,5 +1,10 @@
+$primary-color: aquamarine;
+$secondary-color: lightseagreen;
+$dark-color: darkcyan;
+$light-color: rgb(192, 255, 234);
+
 .home{
-    background-color: aquamarine;
+    background-color: $primary-color;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -9,18 +14,145 @@
         width: 100%;
         height:100%;
         display: flex;
+        color: white;
+
+        img{
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        button{
+            background-color: $secondary-color;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
 
         .sidebar{
             flex:1;
-            background-color: lightseagreen;
+            background-color: $secondary-color;
 
             .navbar{
                 display: flex;
                 align-items: center;
-                background-color: darkcyan;
+                background-color: $dark-color;
+                height: 40px;
+                padding: 10px;
+                justify-content: space-between;
+
+                .user{
+                    display: flex;
+                    gap: 10px;
+
+                    img{
+                        height: 24px;
+                        width: 24px;
+                    }
+                }
+            }
+
+            .userChat{
+                display: flex;
+                gap: 10px;
+                padding: 10px 0 10px 20px;
+                img{
+                    height: 50px;
+                    width: 50px;
+                }
+
+                .userChatInfo{
+                    span{font-size: 18px; font-weight: 500;}
+                    p{font-size: 14px; color: lightgray;}
+                }
             }
         
         }
-        .chat{flex: 2; background-color: aquamarine;}
+        .chat{
+            flex: 2;
+            background-color: $primary-color;
+            color: black;
+
+            .chatInfo{
+                height:40px;
+                padding: 10px;
+                background-color: $secondary-color;
+                display: flex;
+                align-items: center;
+            }
+
+            .messages{
+                background-color: $light-color;
+                padding: 10px;
+                height: calc(100% - 150px);
+                overflow-y: auto;
+
+                .message{
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+
+                    .messageInfo{
+                        display: flex;
+                        flex-direction: column;
+                        color: darkgray;
+                        font-weight: 300;
+                        font-size: 12px;
+                        padding-bottom: 10px;
+                    }
+
+                    .messageContent{
+                        max-width: 80%;
+                        display: flex;
+                        flex-direction: column;
+                        
+                        p{
+                            background-color: white;
+                            padding: 5px;
+                            border-radius: 0 10px 10px 10px;
+                        }
+                    }
+
+                    &.owner {
+                        flex-direction: row-reverse;
+
+                        p{
+                            background-color: $primary-color;
+                            color: white;
+                            border-radius: 10px 0 10px 10px;
+                        }
+                    }
+                }
+            }
+
+            .input{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 50px;
+                padding: 10px;
+                background-color: white;
+
+                input{
+                    width: 100%;
+                    border: none;
+                    outline: none;
+                    font-size: 18px;
+
+                    &::placeholder{
+                        color: darkgray;
+                    }
+                }
+
+                button{
+                    height: 100%;
+                    width: 80px;
+                    font-size: 18px;
+
+                }
+            }
+        
+        }
     }
 }
